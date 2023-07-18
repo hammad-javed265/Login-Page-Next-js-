@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 
 function page() {
   return (
-    <div className='bg-slate-200 p-2 h-full w-full'>
+    <div className=' bg-[url("https://img.freepik.com/premium-vector/interface-structure-data-calculation-systems_49459-481.jpg")] p-2 h-full w-full'>
       {/* navbar starts */}
       <NavList></NavList>
       {/* navbar ends */}
@@ -15,16 +15,16 @@ function page() {
         <Sdiv id={"div1"} title={"Guage Chart"}></Sdiv>
         <Ldiv id={"div2"} title={"Live Consumption"}></Ldiv>
         <div className="flex flex-wrap w-full sm:w-full md:w-[46%] lg:w-[30.9%] xl:w-[31.4%] h-[300px] ml-6 mt-6">
-          <div className="bg-[#161232] text-white p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] xl:mt-0 ml-3 mt-3 relative">
+          <div className="bg-[#161232] text-white opacity-80 hover:bg-white hover:text-[#161232] p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] xl:mt-0 ml-3 mt-3 relative">
             <Consump id={"today"} title={"Today"}>367 kWh</Consump>
           </div>
-          <div className="bg-[#161232] text-white p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] xl:mt-0 ml-3 mt-3 relative">
+          <div className="bg-[#161232] text-white opacity-80 hover:bg-white hover:text-[#161232] p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] xl:mt-0 ml-3 mt-3 relative">
             <Consump id={"week"} title={"Weekly"}>2848 kWh</Consump>
           </div>
-          <div className="bg-[#161232] text-white p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] mt-3 ml-3 relative">
+          <div className="bg-[#161232] text-white opacity-80 hover:bg-white hover:text-[#161232] p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] mt-3 ml-3 relative">
             <Consump id={"month"} title={"Monthly"}>6288 kWh</Consump>
           </div>
-          <div className="bg-[#161232] text-white p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] mt-3 ml-3 relative">
+          <div className="bg-[#161232] text-white opacity-80 hover:bg-white hover:text-[#161232] p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] mt-3 ml-3 relative">
             <Consump id={"year"} title={"YTD"}>35137 kwh</Consump>
           </div>
         </div>

@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 function NavList() {
   const router = useRouter();
   return (
-    <nav className="bg-gray-800 flex rounded-2xl ">
+    <nav className="bg-[#166079] flex rounded-2xl ">
       <div className='w-[97%]'>
         <ul className="flex space-x-14 p-4">
           <li className={router.pathname === "/home" ? "active" : "bg-[#E2E8F0] text-[#000000] rounded"}>
