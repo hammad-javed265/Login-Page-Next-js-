@@ -22,7 +22,7 @@ function NavList() {
               <li><Link href="/sankey">Sankey Diagram</Link></li>
             </Dropdown>
           </li>
-          <Link href="/trend"><li><p className="text-white hover:bg-gray-700 px-2 py-1 rounded">Customized Trends</p></li></Link>
+          <Link href="/trend"><li><p className="text-white px-2 py-1 rounded">Customized Trends</p></li></Link>
           <li className='text-white'>
             <Dropdown title={"Reports"}>
               <li><Link href="/report">Energy Usage Report</Link></li>
