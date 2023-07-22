@@ -27,7 +27,7 @@ class Ldiv extends React.Component {
         style={{ height: expanded ? '87%' : '300px', width: expanded ? '97%' : '', position: expanded ? 'fixed' : '', zIndex: expanded ? '999' : '', opacity: expanded ? '1' : '' }}
       >
         <div
-          className="absolute top-2 right-4 mt-2 mr-2" onClick={this.toggleExpand}>
+          className="absolute top-2 right-4 mt-2 mr-2 cursor-pointer" onClick={this.toggleExpand}>
           <FontAwesomeIcon icon={faExpand} />
         </div>
         <div

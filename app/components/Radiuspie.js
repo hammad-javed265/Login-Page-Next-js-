@@ -46,17 +46,18 @@ const Radiuspie = () => {
     series.dataFields.category = "country";
     series.slices.template.cornerRadius = 6;
     series.colors.step = 3;
-
     series.hiddenState.properties.endAngle = -90;
-
+    // Set the label colors to white
+    series.labels.template.fill = am4core.color("#FFFFFF");
+    // Set the tick (line connecting the slice and the label) colors to white
+    series.ticks.template.stroke = am4core.color("#FFFFFF");
     // chart.legend = new am4charts.Legend();
-
     return () => {
       chart.dispose();
     };
   }, []);
 
-  return <div id="radiuspie" style={{ width: '100%', height: '100%', marginTop: '10px' }} />;
+  return <div id="radiuspie" style={{ width: '100%', height: '100%', marginTop: '15px' }} />;
 };
 
 export default Radiuspie;
