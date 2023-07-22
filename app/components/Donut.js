@@ -8,6 +8,9 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 const Donut = () => {
     useEffect(() => {
         let chart = am4core.create('donut', am4charts.PieChart);
+        if(chart.logo) {
+          chart.logo.disabled = true ;
+        }
 
        // Add data
 chart.data = [{

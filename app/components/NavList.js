@@ -9,8 +9,8 @@ function NavList() {
   return (
     <nav className="bg-[#166079] flex rounded-2xl ">
       <div className='w-[97%]'>
-        <ul className="flex space-x-14 p-4">
-          <li className={router.pathname === "/home" ? "active" : "bg-[#E2E8F0] text-[#000000] rounded"}>
+        <ul className="flex space-x-[5%] p-4">
+          <li className={router.pathname == "/home" ? "active" : "bg-[#E2E8F0] text-[#000000] rounded"}>
             <Dropdown title={"Dashboard"}>
               <li><Link href="/home">Plant Summary</Link></li>
               <li><Link href="/comparision">Energy Comparision</Link></li>

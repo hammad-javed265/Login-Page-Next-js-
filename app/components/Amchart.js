@@ -34,7 +34,7 @@ const AmChart = () => {
         series.dataFields.dateX = 'time';
         series.tooltipText = '{value}°C';
         series.strokeWidth = 2;
-        series.stroke = am4core.color('#660671'); // Set trend line color to red
+        series.stroke = am4core.color('#ff0000'); // Set trend line color to red
 
         // Add bullets
         var bullet = series.bullets.push(new am4charts.CircleBullet());
@@ -78,5 +78,3 @@ const AmChart = () => {
 };
 
 export default AmChart;
-
-// i make my 1st dashboard in the language of nextjs and tailwind in which use amcharts, google charts and chartjs i want to post in linkdin so make the short discription for me 

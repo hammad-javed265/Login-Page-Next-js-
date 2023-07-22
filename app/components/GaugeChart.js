@@ -10,8 +10,8 @@ const gaugeData = [
 class GaugeChart extends Component {
   render() {
     return (
-      <div className="container h-[100%] w-[100%] pt-10">
-        <h2>React Gauge Chart Example</h2>
+      <div className="container h-[100%] w-[100%] pt-14">
+        {/* <h2>React Gauge Chart Example</h2> */}
          <Chart
                  height={null}
                  width={null}
