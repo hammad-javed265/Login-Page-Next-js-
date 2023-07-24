@@ -10,7 +10,7 @@ function page() {
       <div className='bg-[#1E6A8E] text-white p-4 w-[96%] h-[780px] m-8 relative opacity-90'>
         <img src='sld2.png'></img>
         </div>
-      <br /><div className='absolute bottom-1 w-[99%]'><Footer></Footer></div>
+     <Footer></Footer>
     </div>
   )
 }

@@ -1,15 +1,14 @@
 import React from 'react'
 
-function Date({title, id}) {
+function Date({id, onChange, value}) {
   return (
     <div className='flex space-x-4'>
-      <p 
-      className='py-2'
-      >{title}</p>
     <input 
     type="date" 
+    value = {value}
     id={id} 
-    className="text-black border rounded px-2 py-1" />
+    onChange={onChange}
+    className="text-black border rounded px-2 py-1 w-full" />
     </div>
   )
 }

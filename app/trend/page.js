@@ -34,16 +34,19 @@ function page() {
 
         {/* Add the two input date fields on the top right side */}
         <div className="absolute top-16 right-4 flex space-x-4">
+          <p
+            className='py-2'
+          >Start Date:</p>
           <Date title={'Start Date:'} id={'start_date'}></Date>
+          <p
+            className='py-2'
+          >End Date:</p>
           <Date title={'End Date:'} id={'end_date'}></Date>
         </div>
 
         <H_trend></H_trend>
       </div>
-      <br />
-      <div className='absolute bottom-1 w-[99%]'>
-        <Footer></Footer>
-      </div>
+      <Footer></Footer>
 
     </div>
   )

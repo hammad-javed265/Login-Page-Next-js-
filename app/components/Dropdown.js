@@ -58,7 +58,7 @@ const Dropdown = ({ title, children }) => {
             <li key={index} className="mb-3">
               {child}
             </li>
-          ))}
+          ))}    
         </ul>
       )}
     </div>
