@@ -9,6 +9,9 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 const AmChart = () => {
     useEffect(() => {
         let chart = am4core.create('chartdiv', am4charts.XYChart);
+        if(chart.logo) {
+            chart.logo.disabled = true ;
+          }
         chart.paddingRight = 20;
 
         // Create axes

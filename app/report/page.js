@@ -29,7 +29,7 @@ function Page() {
   };
 
   return (
-    <div>
+    <div className='p-2'>
       <NavList />
       <div className='bg-[#1E6A8E] text-white p-4 w-[96%] h-[780px] m-8 relative opacity-90 overflow-auto'>
         <div className='flex flex-col items-center justify-center'>
@@ -84,7 +84,7 @@ function Page() {
                 <label className='text-white mr-2'>Start Date:</label>
               </div>
               <div className='w-2/3'>
-                <Date value={'startDate'} onChange={handleStartDateChange} type='date' />
+                <Date onChange={handleStartDateChange} type='date' />
               </div>
             </div>
             <div className='flex items-center'>
@@ -92,7 +92,7 @@ function Page() {
                 <label className='text-white mr-2'>End Date:</label>
               </div>
               <div className='w-2/3'>
-                <Date value={'endDate'} onChange={handleEndDateChange} type='date' />
+                <Date onChange={handleEndDateChange} type='date' />
               </div>
             </div>
             <center>

@@ -1,62 +1,64 @@
 "use client"
-import React, { useRef, useEffect } from 'react';
-import Chart from 'chart.js/auto';
+import React, { useEffect } from 'react';
+import * as am4core from "@amcharts/amcharts4/core";
+import * as am4charts from '@amcharts/amcharts4/charts';
+// import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
-
-function PieChart() {
-    const canvas = useRef();
-
+// am4core.useTheme(am4themes_animated);
+const PieChart = () => {
     useEffect(() => {
-        const ctx = canvas.current;
-    
-        let chartStatus = Chart.getChart('myChart');
-        if (chartStatus !== undefined) {
-          chartStatus.destroy();
+        let chart = am4core.create('PieChart', am4charts.PieChart);
+        if(chart.logo) {
+          chart.logo.disabled = true ;
         }
-    
-        const chart = new Chart(ctx, {
-          type: 'pie',
-          data: {
-            labels: ['Lions', 'Monkeys', 'Zebras', 'Eagles', 'Horses'],
-            datasets: [
-              {
-                label: 'Dataset 1',
-                data: [12, 19, 3, 2, 3],
-                backgroundColor: [
-                  '#FF6384', // Bright red
-                  '#36A2EB', // Bright blue
-                  '#FFCE56', // Bright yellow
-                  '#4BC0C0', // Bright cyan
-                  '#9966FF', // Bright purple
-                ],
-                borderColor: '#ffffff', // White border color
-                borderWidth: 1,
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: {
-                position: 'right',
-                labels: {
-                  color: '#ffffff', // White legend labels
-                },
-              },
-            //   title: {
-            //     display: true,
-            //     text: 'Number of animals in the zoo',
-            //     color: '#ffffff', // White title text
-            //   },
-            },
-          },
-        });
-      }, []);
-    return (
-        <div className='w-[100%] h-[100%] flex justify-center'>
-          <canvas id='myChart' ref={canvas}></canvas>
-        </div>
-      );
-}
 
-export default PieChart
+      // Add data
+chart.data = [ {
+  "country": "Lithuania",
+  "litres": 501.9
+}, {
+  "country": "Czechia",
+  "litres": 301.9
+}, {
+  "country": "Ireland",
+  "litres": 201.1
+}, {
+  "country": "Germany",
+  "litres": 165.8
+}, {
+  "country": "Australia",
+  "litres": 139.9
+}, {
+  "country": "Austria",
+  "litres": 128.3
+}, {
+  "country": "UK",
+  "litres": 99
+}
+];
+
+// Add and configure Series
+var pieSeries = chart.series.push(new am4charts.PieSeries());
+pieSeries.dataFields.value = "litres";
+pieSeries.dataFields.category = "country";
+pieSeries.slices.template.stroke = am4core.color("#fff");
+pieSeries.slices.template.strokeOpacity = 1;
+
+// This creates initial animation
+pieSeries.hiddenState.properties.opacity = 1;
+pieSeries.hiddenState.properties.endAngle = -90;
+pieSeries.hiddenState.properties.startAngle = -90;
+// Set the label colors to white
+pieSeries.labels.template.fill = am4core.color("#FFFFFF");
+// Set the tick (line connecting the slice and the label) colors to white
+pieSeries.ticks.template.stroke = am4core.color("#FFFFFF");
+chart.hiddenState.properties.radius = am4core.percent(0);
+        return () => {
+            chart.dispose();
+        };
+    }, []);
+
+    return <div id="PieChart" style={{ width: '100%', height: '100%', marginTop: '10px' }} />;
+};
+
+export default PieChart;
