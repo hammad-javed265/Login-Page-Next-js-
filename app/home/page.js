@@ -1,13 +1,12 @@
 import React from 'react';
 import NavList from '../components/NavList';
-import Sdiv from '../components/Sdiv';
-import Ldiv from '../components/Ldiv';
+import Div from '../components/Div';
 import Consump from '../components/Consump';
 import Footer from '../components/Footer';
 import VulnChart from '../components/Bar';
 import GaugeChart from '../components/GaugeChart';
 import PieChart from '../components/PieChart';
-import AmChart from '../components/Amchart';
+import Realtime from '../components/Realtime';
 import Radiuspie from '../components/Radiuspie';
 import Donut from '../components/Donut';
 
@@ -18,26 +17,18 @@ function page() {
       <NavList></NavList>
       {/* navbar ends */}
       <div className="flex flex-wrap space-x-6 space-y-6">
-        <Sdiv id={"div1"} title={"Guage Chart"} ><GaugeChart></GaugeChart></Sdiv>
-        <Ldiv id={"div2"} title={"Live Consumption"}><AmChart></AmChart></Ldiv>
+        <Div id={"div1"} title={"Guage Chart"} length={"lg:w-[30.9%] xl:w-[31.4%]"}><GaugeChart></GaugeChart></Div>
+        <Div id={"div2"} title={"Live Consumption"} length={"lg:w-[64.1%] xl:w-[64.2%]"}><Realtime></Realtime></Div>
         <div className="flex flex-wrap w-full sm:w-full md:w-[46%] lg:w-[30.9%] xl:w-[31.4%] h-[300px] ml-6 mt-6">
-          <div className="bg-[#161232] text-white opacity-80 hover:bg-white hover:text-[#161232] p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] xl:mt-0 ml-3 mt-3 relative">
-            <Consump id={"today"} title={"Today"}>337 kWh</Consump>
-          </div>
-          <div className="bg-[#161232] text-white opacity-80 hover:bg-white hover:text-[#161232] p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] xl:mt-0 ml-3 mt-3 relative">
-            <Consump id={"week"} title={"Weekly"}>2848 kWh</Consump>
-          </div>
-          <div className="bg-[#161232] text-white opacity-80 hover:bg-white hover:text-[#161232] p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] mt-3 ml-3 relative">
-            <Consump id={"month"} title={"Monthly"}>6288 kWh</Consump>
-          </div>
-          <div className="bg-[#161232] text-white opacity-80 hover:bg-white hover:text-[#161232] p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] mt-3 ml-3 relative">
-            <Consump id={"year"} title={"YTD"}>35137 kwh</Consump>
-          </div>
+          <Consump id={"today"} title={"Today"} xltop={"xl:mt-0"}>337 kWh</Consump>
+          <Consump id={"week"} title={"Weekly"} xltop={"xl:mt-0"}>2848 kWh</Consump>
+          <Consump id={"month"} title={"Monthly"}>6288 kWh</Consump>
+          <Consump id={"year"} title={"YTD"}>35137 kwh</Consump>
         </div>
-        <Ldiv id={"div6"} title={"Period Over Period Chart"}><VulnChart></VulnChart></Ldiv>
-        <Sdiv id={"div3"} title={"Pie Chart"}><PieChart></PieChart></Sdiv>
-        <Sdiv id={"div4"} title={"Donut Chart"}><Donut></Donut></Sdiv>
-        <Sdiv id={"div5"} title={"Radius Pie Chart"}><Radiuspie></Radiuspie></Sdiv>
+        <Div id={"div4"} title={"Period Over Period Chart"} length={"lg:w-[64.1%] xl:w-[64.2%]"}><VulnChart></VulnChart></Div>
+        <Div id={"div5"} title={"Pie Chart"} length={"lg:w-[30.9%] xl:w-[31.4%]"}><PieChart></PieChart></Div>
+        <Div id={"div6"} title={"Donut Chart"} length={"lg:w-[30.9%] xl:w-[31.4%]"}><Donut></Donut></Div>
+        <Div id={"div7"} title={"Radius Pie Chart"} length={"lg:w-[30.9%] xl:w-[31.4%]"}><Radiuspie></Radiuspie></Div>
       </div>
       <br /><Footer></Footer>
     </div>
