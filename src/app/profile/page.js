@@ -16,9 +16,7 @@ const Profile = () => {
   const [user, setUser] = useState({});
   const [image, setImage] = useState(() => {
    
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('profileImage') || null;
-    }
+    return localStorage.getItem('profileImage') || null;
   });
 
   useEffect(() => {
@@ -48,9 +46,7 @@ const Profile = () => {
     const file = await res.json();
     
     // Save the image URL to local storage
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('profileImage', file.secure_url);
-    }
+    localStorage.setItem('profileImage', file.secure_url);
    
     setImage(file.secure_url); // Use setImage to set the state
   };
