@@ -17,8 +17,8 @@ function page() {
       <NavList></NavList>
       {/* navbar ends */}
       <div className="flex flex-wrap space-x-6 space-y-6">
-        <Div id={"div1"} title={"Guage Chart"} length={"lg:w-[30.9%] xl:w-[31.4%]"}><GaugeChart></GaugeChart></Div>
-        <Div id={"div2"} title={"Live Consumption"} length={"lg:w-[64.1%] xl:w-[64.2%]"}><Realtime></Realtime></Div>
+        <Div id={"div1"} title={"Live Energy Consumption"} length={"lg:w-[30.9%] xl:w-[31.4%]"}><GaugeChart></GaugeChart></Div>
+        <Div id={"div2"} title={"Live Power Factor"} length={"lg:w-[64.1%] xl:w-[64.2%]"}><Realtime></Realtime></Div>
         <div className="flex flex-wrap w-full sm:w-full md:w-[46%] lg:w-[30.9%] xl:w-[31.4%] h-[300px] ml-6 mt-6">
           <Consump id={"today"} title={"Today"} xltop={"xl:mt-0"}>337 kWh</Consump>
           <Consump id={"week"} title={"Weekly"} xltop={"xl:mt-0"}>2848 kWh</Consump>

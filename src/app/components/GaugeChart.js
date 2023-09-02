@@ -5,11 +5,11 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_dark from '@amcharts/amcharts4/themes/dark';
 
 const GaugeChart = () => {
-    const [currentValue, setCurrentValue] = useState(0);
+    const [value, setCurrentValue] = useState(0);
     useEffect(() => {
         am4core.useTheme(am4themes_dark);
-        
-        let chart = am4core.create('chartdiv1', am4charts.GaugeChart);
+
+        let chart = am4core.create('GaugeChart', am4charts.GaugeChart);
         if (chart.logo) {
             chart.logo.disabled = true;
         }
@@ -18,7 +18,7 @@ const GaugeChart = () => {
 
         var axis = chart.xAxes.push(new am4charts.ValueAxis());
         axis.min = 0;
-        axis.max = 1200;
+        axis.max = 20000;
         axis.strictMinMax = true;
         axis.numberFormatter.numberFormat = "#a";
 
@@ -46,25 +46,32 @@ const GaugeChart = () => {
         hand.parent.zIndex = 100;
 
         const updateHandValue = (value) => {
-          hand.showValue(value, 1000, am4core.ease.cubicOut);
-          setCurrentValue(value); // Update the current value state
+            hand.showValue(value, 1000, am4core.ease.cubicOut);
+            setCurrentValue(value); // Update the current value state
         };
 
         const fetchData = () => {
-            fetch("http://15.185.73.254:1880/latestnaubahar1")
-                .then(response => response.json())
+            console.log("Fetching data...");
+            fetch("http://15.185.73.254:1880/live_consumption")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(dataFromAPI => {
-                    const value = (dataFromAPI.U_1_ActiveEnergy_Delivered_kWh) / 10000;
-                    const roundedValue = parseFloat(value.toFixed(2)); // Round to 2 decimal places
+                    // console.log("Data from API:", dataFromAPI);
+                    const value = dataFromAPI;
+                    // console.log("Rounded value:", value);
                     updateHandValue(value);
                 })
                 .catch(error => {
                     console.error("Error fetching data:", error);
                 });
         };
-
+        
         fetchData(); // Initial fetch
-        const interval = setInterval(fetchData, 1000); // Fetch data every 2 seconds
+        const interval = setInterval(fetchData, 5000);
 
         return () => {
             clearInterval(interval);
@@ -73,11 +80,11 @@ const GaugeChart = () => {
     }, []);
 
     return (
-      <div className='w-full h-full pt-3'>
-          <div id="chartdiv1" className='w-full h-full' />
-          <div className='text-center text-xl mt-[-20px]'>{currentValue} <small> kWh</small></div>
-      </div>
-  );
+        <div className='w-full h-full pt-5'>
+            <div id="GaugeChart" className='w-full h-full' />
+            <div className='text-center text-xl mt-[-20px]'>{parseFloat(value.toFixed(0))} <small> kWh</small></div>
+        </div>
+    );
 };
 
 export default GaugeChart;

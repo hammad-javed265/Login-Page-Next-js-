@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 // import Link from 'next/link';
 
-const Dropdown = ({ title, children }) => {
+const Dropdown = ({ title, children, img, adjust }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
@@ -36,7 +36,7 @@ const Dropdown = ({ title, children }) => {
         onClick={toggleDropdown}
         className={"px-2 py-1 rounded flex items-center"}
       >
-        <span className="mr-1">{title}</span>
+        <span className="mr-1">{title}{img}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
@@ -53,7 +53,7 @@ const Dropdown = ({ title, children }) => {
         </svg>
       </button>
       {isOpen && activeDropdown === title && (
-        <ul className="absolute bg-gray-700 text-white py-2 px-3 rounded shadow z-50 mt-3 w-48">
+        <ul className={`absolute bg-gray-700 text-white py-2 px-3 rounded shadow z-50 mt-3  ${adjust}`}>
           {children.map((child, index) => (
             <li key={index} className="mb-3">
               {child}
