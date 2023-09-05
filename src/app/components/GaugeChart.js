@@ -51,7 +51,7 @@ const GaugeChart = () => {
         };
 
         const fetchData = () => {
-            console.log("Fetching data...");
+            // console.log("Fetching data...");
             fetch("http://15.185.73.254:1880/live_consumption")
                 .then(response => {
                     if (!response.ok) {
