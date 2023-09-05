@@ -55,7 +55,7 @@ function NavList() {
       <div>
       {/* <Dropdown img = {<img src="https://res.cloudinary.com/dy6ncsfte/image/upload/v1693572280/ProfilePic/zhrqldvvvcbavx6iugdg.png" alt="" width="50px" height="50px" ></img>} adjust={'ml-[-30px]'}> */}
              
-      <Dropdown imgSrc={user?.image} imgClassName="mt-2 w-10 h-10 rounded-full" adjust={'ml-[-35px] w-[108px]'}>
+           <Dropdown img = {<img src={user?.image} className="mt-2 w-10 h-10 rounded-full " />} adjust={'ml-[-35px] w-[108px]'}>
            {/* <Dropdown img = {user?.username}> */}
               <Link href="/profile"><li>View Profile</li></Link>
               <li><LogoutButton></LogoutButton></li>
