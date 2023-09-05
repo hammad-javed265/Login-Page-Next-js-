@@ -84,10 +84,3 @@ const Profile = () => {
 }
 
 export default Profile
-
-
-
-    //   <button
-    //   className='bg-red-500 py-2 px-7 rounded-md'
-    //   onClick={logoutHandler}
-    // >Logout</button>
