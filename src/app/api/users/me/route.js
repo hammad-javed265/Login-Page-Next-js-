@@ -9,7 +9,8 @@ export async function GET(NextRequest){
     try {
         const userId = await getDataFromToken(NextRequest);
         const user = await User.findOne({_id: userId}).select("-password");   //if you want to deselect some other field then add a space i.e -isAdmin
-
+        console.log("this is me api data");
+        console.log(user);
         return NextResponse.json({
           message: "User found",
           user: user,
