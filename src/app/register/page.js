@@ -90,10 +90,10 @@ const Register = () => {
       <div className='flex items-center h-full w-full  justify-center'>
         <div className='  w-[95%] bg-[#8B7BA2] p-5  md:w-[80%] lg:w-[30%]'>
           <h2 className='text-white text-center text-2xl font-bold'>Register</h2>
-          <div className='mt-5 space-y-3 text-white'>
+          <div className='mt-5 space-y-3 text-black'>
             <input
               type="file"
-              className='outline-none border-b-4 border-transparent py-2 text-sm w-full px-5 transition duration-150 focus:border-red-500'
+              className='outline-none text-white border-b-4 border-transparent py-2 text-sm w-full px-5 transition duration-150 focus:border-red-500'
               onChange={handleImageUpload}
             />
             <img src={imagePreview} alt="" className='h-[50%] w-[50%] m-auto' style={{ maxWidth: "100%" }} />
