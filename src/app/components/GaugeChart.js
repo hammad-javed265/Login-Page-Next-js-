@@ -53,28 +53,30 @@ const GaugeChart = () => {
         const fetchData = () => {
             console.log("Fetching data...");
             fetch("http://15.185.73.254:1880/live_consumption")
-              .then(response => {
-                if (!response.ok) {
-                  throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-              })
-              .then(dataFromAPI => {
-                const value = dataFromAPI;
-                updateHandValue(value);
-              })
-              .catch(error => {
-                console.error("Error fetching data:", error);
-              });
-          };
-          
-          fetchData(); // Initial fetch
-          const interval = setInterval(fetchData, 5000);
-          
-          return () => {
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(dataFromAPI => {
+                    // console.log("Data from API:", dataFromAPI);
+                    const value = dataFromAPI;
+                    // console.log("Rounded value:", value);
+                    updateHandValue(value);
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        };
+        
+        fetchData(); // Initial fetch
+        const interval = setInterval(fetchData, 5000);
+
+        return () => {
             clearInterval(interval);
             chart.dispose();
-          };
+        };
     }, []);
 
     return (
