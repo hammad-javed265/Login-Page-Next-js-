@@ -26,7 +26,6 @@ export const config = {
     '/login',
     '/register',
     '/sankey',
-    '/home',
     '/sld',
   ],
 }

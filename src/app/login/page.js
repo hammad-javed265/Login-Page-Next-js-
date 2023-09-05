@@ -31,7 +31,7 @@ const Login = () => {
       console.log(response);
       if(response.data.success){
         toast.success("Login Successful", { position: toast.POSITION.TOP_RIGHT});
-        router.push("/home");
+        router.push("/");
       }
       else{
         toast.error(response.data.message, { position: toast.POSITION.TOP_RIGHT});
@@ -77,7 +77,11 @@ const Login = () => {
                 className='bg-red-700 w-full py-2 font-bold text-white'
                 onClick={loginHandler}
                 disabled = {buttonDisabled ? true : false}
-              >Signin</button>
+              > {loading ? (
+                <img src="./loding.gif" className='m-auto mt-[-10px] mb-[-10px]' height={30} width={40} alt="loading" />
+              ) : (
+                "Sign-In"
+              )}</button>
             </div>
             <p className='text-white mt-5'>Dont have an account? <Link href={"/register"} className='text-black underline font-semibold'>Register</Link> </p>
           </div>

@@ -1,14 +1,14 @@
 import React from 'react';
-import NavList from '../components/NavList';
-import Div from '../components/Div';
-import Consump from '../components/Consump';
-import Footer from '../components/Footer';
-import VulnChart from '../components/Bar';
-import GaugeChart from '../components/GaugeChart';
-import PieChart from '../components/PieChart';
-import Realtime from '../components/Realtime';
-import Radiuspie from '../components/Radiuspie';
-import Donut from '../components/Donut';
+import NavList from './components/NavList';
+import Div from './components/Div';
+import Consump from './components/Consump';
+import Footer from './components/Footer';
+import VulnChart from './components/Bar';
+import GaugeChart from './components/GaugeChart';
+import PieChart from './components/PieChart';
+import Realtime from './components/Realtime';
+import Radiuspie from './components/Radiuspie';
+import Donut from './components/Donut';
 
 function page() {
   return (

@@ -1,19 +1,39 @@
 "use client";
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
+import axios from 'axios';
 import Dropdown from '../components/Dropdown';
-import { usePathname } from "next/navigation";
-import LogoutButton from './sidebar/LogoutButton';
+import { usePathname, useRouter } from "next/navigation";
+import LogoutButton from './LogoutButton';
+
+
+
+
 
 function NavList() {
   const pathname = usePathname();
+  const router = useRouter();
+  const [userId, setUserId] = useState("");
+  const [user, setUser] = useState({});
+  
+  useEffect(() => {
+    getUserDetails();
+  }, [])
+  
+  const getUserDetails = async () => {
+    const res = await axios.get("../api/users/me");    
+    setUser(res.data.user);
+  }
+
+
+
   return (
     <nav className="bg-[#166079] flex rounded-2xl ">
       <div className='w-[97%]'>
         <ul className="flex sm:space-x-[3%] md:space-x-[5%] p-4 max-sm:text-[10px]">
-          <li className={`${pathname == "/home" ? "bg-[#E2E8F0] text-[#000000] rounded" : "text-[#E2E8F0]"}`}>
+          <li className={`${pathname == "/" ? "bg-[#E2E8F0] text-[#000000] rounded" : "text-[#E2E8F0]"}`}>
             <Dropdown title={"Dashboard"} adjust={'w-48'}>
-              <Link href="/home"><li>Plant Summary</li></Link>
+              <Link href="/"><li>Plant Summary</li></Link>
               <Link href="/comparision"><li>Energy Comparision</li></Link>
             </Dropdown>
           </li>
@@ -37,7 +57,10 @@ function NavList() {
         </ul>
       </div>
       <div>
-      <Dropdown img = {<img src="https://res.cloudinary.com/dy6ncsfte/image/upload/v1693572280/ProfilePic/zhrqldvvvcbavx6iugdg.png" alt="" width="50px" height="50px" ></img>} adjust={'ml-[-30px]'}>
+      {/* <Dropdown img = {<img src="https://res.cloudinary.com/dy6ncsfte/image/upload/v1693572280/ProfilePic/zhrqldvvvcbavx6iugdg.png" alt="" width="50px" height="50px" ></img>} adjust={'ml-[-30px]'}> */}
+             
+           <Dropdown img = {<img src={user?.image} className="mt-2 w-10 h-10 rounded-full " />} adjust={'ml-[-35px] w-[108px]'}>
+           {/* <Dropdown img = {user?.username}> */}
               <Link href="/profile"><li>View Profile</li></Link>
               <li><LogoutButton></LogoutButton></li>
             </Dropdown>

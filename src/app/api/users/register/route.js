@@ -8,7 +8,7 @@ connect();
 export async function POST(NextRequest){
     try {
         const reqBody = await NextRequest.json();
-        const {username, email, password} = reqBody;
+        const {username, email, password, image} = reqBody;
 
         console.log(reqBody);
 
@@ -32,7 +32,9 @@ export async function POST(NextRequest){
         const newUser = new User({
             username,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            image,
+            
         })
 
 

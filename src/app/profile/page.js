@@ -1,14 +1,8 @@
 "use client";
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation';
-import { toast } from 'react-toastify';
-import axios from 'axios';
-import Link from 'next/link';
 import NavList from '../components/NavList';
 import Footer from '../components/Footer';
 import useUserStore from '@/hooks/userStore';
-
-
 
 const Profile = () => {
 
@@ -60,39 +54,30 @@ const Profile = () => {
     <div className='p-2'>
 
       <NavList></NavList>
-      <div className='bg-[#1E6A8E] text-white p-4 w-[96%] h-[780px] m-8 relative opacity-90'>
-        <div className='flex flex-col items-center justify-center gap-3'>
-          <div className='flex items-center justify-between'>
-            {/* <div>
-          <p>
-            Hello <span className='font-bold'>{user?.username}</span>
-          </p>
-        
-        </div> */}
+      <div className='bg-[#1E6A8E] text-white p-4 w-[96%] h-[780px] max-md:w-[90%] m-7 relative opacity-90 '>
+        <div className='flex flex-col items-center justify-center gap-3 h-[60%]'>
 
-            <div>
-              <div className="profile-picture">
-                {image ? (
-                  <div className="circular-image">
-                    <img className="rounded-image" src={image} alt="Profile" />
-                  </div>
-                ) : (
-                  <div className="circular-image empty-profile" onClick={openFileSelector}>
-                    Upload Image
-                    <input type="file" id="file" name="file" style={{ display: 'none' }} onChange={uploadFile} />
-                  </div>
-                )}
-                {image && (
-                  <div className="circular-image" onClick={openFileSelector}>
-                    Update Image
-                    <input type="file" id="file" name="file" onChange={uploadFile} />
-                  </div>
-                )}
+          <div className="profile-picture w-[100%] items-center justify-center flex flex-col">
+            {image ? (
+              <div className="circular-image float-right">
+                <img className="rounded-image" src={image} alt="Profile" />
               </div>
-            </div>
+            ) : (
+              <div className="circular-image empty-profile pl-[73px] pt-4" onClick={openFileSelector}>
+                Upload Image:&#160;&#160;&#160;&#160;
+                <input type="file" id="file" name="file" style={{display: 'none' }} onChange={uploadFile} />
+              </div>
+            )}
+            {image && (
+              <div className="circular-image pl-[73px] pt-4" onClick={openFileSelector}>
+                Update Image:&#160;&#160;&#160;&#160;
+                <input type="file" id="file" name="file" onChange={uploadFile} />
+              </div>
+            )}
           </div>
         </div>
       </div>
+
       <Footer></Footer>
     </div>
   )
