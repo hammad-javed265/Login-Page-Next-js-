@@ -4,7 +4,7 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const PieChart = () => {
+const Pie = () => {
   // for current date
   const currentDate = new Date();
   const year = currentDate.getFullYear();
@@ -48,7 +48,7 @@ const PieChart = () => {
 
       // Define the categories with shorter names
       const categories = [
-        "U_1_ActiveEnergy_KWH",
+        // "U_1_ActiveEnergy_KWH",
         "G_1_ActiveEnergy_KWH",
         "G_2_ActiveEnergy_KWH",
         "S_1_ActiveEnergy_KWH",
@@ -87,48 +87,46 @@ const PieChart = () => {
 
   useEffect(() => {
     if (consumptionData.length > 0) {
-      let chart = am4core.create("PieChart", am4charts.PieChart);
-      if (chart.logo) {
-        chart.logo.disabled = true;
-      }
-
-      // Add and configure Series
-      var pieSeries = chart.series.push(new am4charts.PieSeries());
-      pieSeries.dataFields.value = "consumption";
-      pieSeries.dataFields.category = "category";
-      pieSeries.slices.template.stroke = am4core.color("#fff");
-      pieSeries.slices.template.strokeOpacity = 1;
-
-      pieSeries.hiddenState.properties.opacity = 1;
-      pieSeries.hiddenState.properties.endAngle = -90;
-      pieSeries.hiddenState.properties.startAngle = -90;
-
-      pieSeries.labels.template.fill = am4core.color("#FFFFFF");
-      pieSeries.ticks.template.stroke = am4core.color("#FFFFFF");
-      chart.hiddenState.properties.radius = am4core.percent(0);
-
-      chart.data = consumptionData;
+    let chart = am4core.create('pie', am4charts.PieChart);
+    if (chart.logo) {
+      chart.logo.disabled = true;
     }
-  }, [consumptionData]);
+    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-  const handleDateChange = (event) => {
-    setSelectedDate(event.target.value);
-  };
+    var series = chart.series.push(new am4charts.PieSeries());
+    series.dataFields.value = "consumption";
+    // series.dataFields.radiusValue = "consumption";
+    series.dataFields.category = "category";
+    series.slices.template.cornerRadius = 6;
+    series.colors.step = 3;
+    series.hiddenState.properties.endAngle = -90;
+    // Set the label colors to white
+    series.labels.template.fill = am4core.color("#FFFFFF");
+    // Set the tick (line connecting the slice and the label) colors to white
+    series.ticks.template.stroke = am4core.color("#FFFFFF");
+    chart.data = consumptionData;
+    chart.radius = am4core.percent(90);
+  }
+}, [consumptionData]);
 
-  return (
-    <div style={{ width: "100%", height: "100%" }}>
-      <div className=" absolute top-2 right-4 mt-[6px] mr-10">
-        <label>Select Date: </label>
-        <input
-          type="date"
-          className="text-black"
-          value={selectedDate}
-          onChange={handleDateChange}
-        />
-      </div>
-      <div id="PieChart" style={{ width: "100%", height: "100%", marginTop: "20px" }} />
-    </div>
-  );
+const handleDateChange = (event) => {
+  setSelectedDate(event.target.value);
 };
 
-export default PieChart;
+return (
+  <div className="w-full h-full">
+    <div className=" absolute top-2 right-4 mt-[6px] mr-10">
+      {/* <label>Select Date: </label> */}
+      <input
+        type="date"
+        className="text-black"
+        value={selectedDate}
+        onChange={handleDateChange}
+      />
+    </div>
+    <div id="pie" style={{ width: "100%", height: "97%", marginTop: "25px" }} />
+  </div>
+);
+};
+
+export default Pie;
