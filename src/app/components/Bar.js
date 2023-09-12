@@ -16,14 +16,14 @@ const VulnChart = () => {
           datasets: [
             {
               label: "# of vulnerabilities",
-              data: [15, 12, 6, 7, 4],
+              data: [15, 12, 9, 7, 14],
               backgroundColor: ["red", "yellow", "blue", "black", "green"],
               // borderColor: "orange",
               // borderWidth: 5
             },
             {
               label: "Web Apps",
-              data: [20, 13, 6, 8, 9],
+              data: [18, 13, 4, 8, 19],
               backgroundColor: "purple",
               // borderColor: "red",
               // borderWidth: 5

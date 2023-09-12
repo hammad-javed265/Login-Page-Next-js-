@@ -18,7 +18,7 @@ class Div extends React.Component {
   };
 
   render() {
-    const { id, title, children, length } = this.props;
+    const { id, title, children, length, child1 } = this.props;
     const { expanded } = this.state;
     return (
       <div
@@ -30,6 +30,7 @@ class Div extends React.Component {
           className="absolute top-2 right-4 mt-2 mr-2 cursor-pointer" onClick={this.toggleExpand}>
           <FontAwesomeIcon icon={faExpand} />
         </div>
+        {child1}
         <div
           className="absolute top-2 left-4">
           <p
