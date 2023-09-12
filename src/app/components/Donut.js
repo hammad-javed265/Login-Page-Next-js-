@@ -100,21 +100,21 @@ const Donut = () => {
       pieSeries.ticks.template.disabled = true;
       pieSeries.labels.template.disabled = true;
       pieSeries.colors.list = [
-        am4core.color("#8975a8"), // Turbine 1
-        am4core.color("#63ab30"), // syrup room
-        am4core.color("#FF9671"), // Air comressor(3+4)
-        am4core.color("#FFC75F"), // Air comressor(1+2)
-        am4core.color("#FF6F91"), // Grasso 4
-        am4core.color("#028cc7"), // Grasso 3
-        am4core.color("#0245f6"), // Grasso 2
-        am4core.color("#3d019f"), // Grasso 1
-        am4core.color("#8301ab"), // Eporators
-        am4core.color("#a31749"), // Line 5
-        am4core.color("#f62611"), // Line 4
-        am4core.color("#670110"), // Line 3
-        am4core.color("#f39402"), // Line 1
-        am4core.color("#313131"), // Boiler
-        am4core.color("#949494") // Turbine 2
+        am4core.color("#8975a8"), 
+        am4core.color("#63ab30"), 
+        am4core.color("#FF9671"), 
+        am4core.color("#FFC75F"), 
+        am4core.color("#FF6F91"), 
+        am4core.color("#028cc7"), 
+        am4core.color("#0245f6"),
+        am4core.color("#3d019f"), 
+        am4core.color("#8301ab"), 
+        am4core.color("#a31749"), 
+        am4core.color("#f62611"), 
+        am4core.color("#670110"), 
+        am4core.color("#f39402"),
+        am4core.color("#313131"), 
+        am4core.color("#949494") 
       ];
       var rgm = new am4core.RadialGradientModifier();
       rgm.brightnesses.push(-0.8, -0.8, -0.5, 0, - 0.5);
