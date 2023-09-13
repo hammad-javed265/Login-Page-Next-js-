@@ -86,9 +86,9 @@ const Register = () => {
   }, [user]);
 
   return (
-    <div className='bg-slate-400 w-full h-screen bg-[url("https://wallpapercave.com/wp/wp2672844.jpg")] bg-no-repeat bg-center bg-cover'>
+    <div className='bg-slate-400 w-full h-screen bg-[url("../../public/cloud.jpg")] bg-no-repeat bg-center bg-cover'>
       <div className='flex items-center h-full w-full  justify-center'>
-        <div className='  w-[95%] bg-[#8B7BA2] p-5  md:w-[80%] lg:w-[30%]'>
+        <div className='  w-[95%] bg-[#63B1D8] rounded-2xl p-5  md:w-[80%] lg:w-[30%]' style={{boxShadow:'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;'}}>
           <h2 className='text-white text-center text-2xl font-bold'>Register</h2>
           <div className='mt-5 space-y-3 text-black'>
             <input

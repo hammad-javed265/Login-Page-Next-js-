@@ -54,7 +54,7 @@ const Donut = () => {
         "S_1_ActiveEnergy_KWH",
         "U_5_ActiveEnergy_KWH",
         "U_6_ActiveEnergy_KWH",
-        "U_7_ActiveEnergy_KWH",
+        "U_7_ActiveEnergy_KWH", 
         "U_8_ActiveEnergy_KWH",
         "U_9_ActiveEnergy_KWH",
         "U_10_ActiveEnergy_KWH",
@@ -131,6 +131,7 @@ const Donut = () => {
 
       chart.data = consumptionData;
     }
+    
   }, [consumptionData]);
 
   const handleDateChange = (event) => {
