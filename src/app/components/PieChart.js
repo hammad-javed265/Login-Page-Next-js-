@@ -125,7 +125,7 @@ const Pie = () => {
 
   return (
     <div className="w-full h-full">
-      <div className=" absolute top-2 xl:right-14 sm:right-14 mt-[6px] xl:mr-44 sm:mr-44 lg:right-4 lg:mr-8 md:right-4 md:mr-8">
+      <div className=" absolute top-2 xl:right-14 max-sm:right-14 mt-[6px] xl:mr-44 max-sm:mr-44 lg:right-4 lg:mr-8 md:right-4 md:mr-8">
         <label className="bg-black pb-[0.7px]">Start Date: </label>
         <input
           type="date"
@@ -134,7 +134,7 @@ const Pie = () => {
           onChange={handleStartDateChange}
         />
       </div>
-      <div className=" absolute top-2 right-4 xl:mt-[6px] sm:mt-[6px] mr-8 lg:mt-[30px] md:mt-[30px]">
+      <div className=" absolute top-2 right-4 xl:mt-[6px] max-sm:mt-[6px] mr-8 lg:mt-[30px] md:mt-[30px]">
         <label className="bg-black pb-[0.7px]">End Date: </label>
         <input
           type="date"
@@ -143,7 +143,7 @@ const Pie = () => {
           onChange={handleEndDateChange}
         />
       </div>
-      <div id="pie" className="w-full sm:h-[97%] xl:h-[97%] md:h-[90%] lg:h-[90%] sm:mt-[25px] xl:mt-[25px] lg:mt-[45px] md:mt-[45px] "/>
+      <div id="pie" className="w-full max-sm:h-[95%] xl:h-[97%] md:h-[90%] lg:h-[90%] max-sm:mt-[30px] xl:mt-[25px] lg:mt-[45px] md:mt-[45px] "/>
     </div>
   );
 };
