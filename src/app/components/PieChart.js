@@ -8,20 +8,21 @@ const Pie = () => {
   // for current date
   const currentDate = new Date();
   const year = currentDate.getFullYear();
-  const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Add 1 to month since it's 0-based
-  const day = String(currentDate.getDate()).padStart(2, '0');
+  const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Add 1 to month since it's 0-based
+  const day = String(currentDate.getDate()).padStart(2, "0");
   const formattedDate = `${year}-${month}-${day}`;
   //
   const [apiData, setApiData] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(formattedDate);
+  const [selectedStartDate, setSelectedStartDate] = useState(formattedDate);
+  const [selectedEndDate, setSelectedEndDate] = useState(formattedDate);
   const [consumptionData, setConsumptionData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (selectedDate) {
+        if (selectedStartDate && selectedEndDate) {
           const response = await axios.get(
-            `https://energy-monitering.vercel.app/api/meters/getdata?date=${selectedDate}`
+            `https://energy-monitering.vercel.app/api/meters/getdata?start=${selectedStartDate}&end=${selectedEndDate}`
           );
           setApiData(response.data);
         }
@@ -35,7 +36,7 @@ const Pie = () => {
     return () => {
       // Clean up if necessary
     };
-  }, [selectedDate]);
+  }, [selectedStartDate, selectedEndDate]);
 
   useEffect(() => {
     const calculateConsumption = () => {
@@ -54,11 +55,11 @@ const Pie = () => {
         "S_1_ActiveEnergy_KWH",
         "U_5_ActiveEnergy_KWH",
         "U_6_ActiveEnergy_KWH",
-        "U_7_ActiveEnergy_KWH",
+        "U_7_ActiveEnergy_KWH", 
         "U_8_ActiveEnergy_KWH",
         "U_9_ActiveEnergy_KWH",
         "U_10_ActiveEnergy_KWH",
-        "U_11_ActiveEnergy_KWH",
+        // "U_11_ActiveEnergy_KWH",
         "U_12_ActiveEnergy_KWH",
         "U_13_ActiveEnergy_KWH",
         "U_14_ActiveEnergy_KWH",
@@ -66,7 +67,13 @@ const Pie = () => {
 
       categories.forEach((category) => {
         const categoryData = apiData
-          .filter((item) => item.Time.startsWith(selectedDate))
+          .filter((item) => {
+            const itemDate = new Date(item.Time);
+            return (
+              itemDate >= new Date(selectedStartDate) &&
+              itemDate <= new Date(`${selectedEndDate}T23:59:59.999`)
+            );
+          })
           .map((item) => item[category]);
         const firstValue = categoryData[0] || 0;
         const lastValue = categoryData[categoryData.length - 1] || 0;
@@ -83,50 +90,62 @@ const Pie = () => {
     return () => {
       // Clean up if necessary
     };
-  }, [apiData, selectedDate]);
+  }, [apiData, selectedStartDate, selectedEndDate]);
 
   useEffect(() => {
     if (consumptionData.length > 0) {
-    let chart = am4core.create('pie', am4charts.PieChart);
-    if (chart.logo) {
-      chart.logo.disabled = true;
+      let chart = am4core.create("pie", am4charts.PieChart);
+      if (chart.logo) {
+        chart.logo.disabled = true;
+      }
+      chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+      var series = chart.series.push(new am4charts.PieSeries());
+      series.dataFields.value = "consumption";
+      series.dataFields.category = "category";
+      series.slices.template.cornerRadius = 6;
+      series.colors.step = 3;
+      series.hiddenState.properties.endAngle = -90;
+      // Set the label colors to white
+      series.labels.template.fill = am4core.color("#FFFFFF");
+      // Set the tick (line connecting the slice and the label) colors to white
+      series.ticks.template.stroke = am4core.color("#FFFFFF");
+      chart.data = consumptionData;
+      chart.radius = am4core.percent(90);
     }
-    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+  }, [consumptionData]);
 
-    var series = chart.series.push(new am4charts.PieSeries());
-    series.dataFields.value = "consumption";
-    // series.dataFields.radiusValue = "consumption";
-    series.dataFields.category = "category";
-    series.slices.template.cornerRadius = 6;
-    series.colors.step = 3;
-    series.hiddenState.properties.endAngle = -90;
-    // Set the label colors to white
-    series.labels.template.fill = am4core.color("#FFFFFF");
-    // Set the tick (line connecting the slice and the label) colors to white
-    series.ticks.template.stroke = am4core.color("#FFFFFF");
-    chart.data = consumptionData;
-    chart.radius = am4core.percent(90);
-  }
-}, [consumptionData]);
+  const handleStartDateChange = (event) => {
+    setSelectedStartDate(event.target.value);
+  };
 
-const handleDateChange = (event) => {
-  setSelectedDate(event.target.value);
-};
+  const handleEndDateChange = (event) => {
+    setSelectedEndDate(event.target.value);
+  };
 
-return (
-  <div className="w-full h-full">
-    <div className=" absolute top-2 right-4 mt-[6px] mr-10">
-      {/* <label>Select Date: </label> */}
-      <input
-        type="date"
-        className="text-black"
-        value={selectedDate}
-        onChange={handleDateChange}
-      />
+  return (
+    <div className="w-full h-full">
+      <div className=" absolute top-2 xl:right-14 sm:right-14 mt-[6px] xl:mr-44 sm:mr-44 lg:right-4 lg:mr-8 md:right-4 md:mr-8">
+        <label className="bg-black pb-[0.7px]">Start Date: </label>
+        <input
+          type="date"
+          className="text-black w-[108px]"
+          value={selectedStartDate}
+          onChange={handleStartDateChange}
+        />
+      </div>
+      <div className=" absolute top-2 right-4 xl:mt-[6px] sm:mt-[6px] mr-8 lg:mt-[30px] md:mt-[30px]">
+        <label className="bg-black pb-[0.7px]">End Date: </label>
+        <input
+          type="date"
+          className="text-black w-[108px]"
+          value={selectedEndDate}
+          onChange={handleEndDateChange}
+        />
+      </div>
+      <div id="pie" className="w-full sm:h-[97%] xl:h-[97%] md:h-[90%] lg:h-[90%] sm:mt-[25px] xl:mt-[25px] lg:mt-[45px] md:mt-[45px] "/>
     </div>
-    <div id="pie" style={{ width: "100%", height: "97%", marginTop: "25px" }} />
-  </div>
-);
+  );
 };
 
 export default Pie;

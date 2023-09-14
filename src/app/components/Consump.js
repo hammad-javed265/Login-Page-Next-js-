@@ -2,7 +2,7 @@ import React from 'react'
 
 function Consump({ id, children, title, xltop }) {
     return (
-        <div className={`bg-[#161232] text-white opacity-80 hover:bg-white hover:text-[#161232] p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] ml-3 mt-3 relative ${xltop}`}>
+        <div className={`bg-[#161232] text-white opacity-80 border-b-2 border-white hover:bg-white hover:text-[#161232] p-4 w-full sm:w-full md:w-full lg:w-full xl:w-[46.9%] ml-3 mt-3 relative ${xltop}`}>
             <div
                 className="flex items-center justify-between xl:border-b-[1px] border-zinc-400 border-b-[0px] pb-2">
                 <h2
