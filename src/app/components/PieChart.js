@@ -125,11 +125,11 @@ const Pie = () => {
 
   return (
     <div className="w-full h-full">
-      <div className=" absolute top-2 xl:right-14 max-sm:right-14 mt-[6px] xl:mr-44 max-sm:mr-44 lg:right-4 lg:mr-8 md:right-4 md:mr-8">
+      <div className=" absolute top-2 xl:right-14 max-sm:right-7 mt-[6px] xl:mr-44 max-sm:mr-40 lg:right-4 lg:mr-8 md:right-4 md:mr-8">
         <label className="bg-black pb-[0.7px]">Start Date: </label>
         <input
           type="date"
-          className="text-black w-[108px]"
+          className="text-black w-[108px] max-sm:w-[65px]"
           value={selectedStartDate}
           onChange={handleStartDateChange}
         />
@@ -138,7 +138,7 @@ const Pie = () => {
         <label className="bg-black pb-[0.7px]">End Date: </label>
         <input
           type="date"
-          className="text-black w-[108px]"
+          className="text-black w-[108px] max-sm:w-[65px]"
           value={selectedEndDate}
           onChange={handleEndDateChange}
         />
