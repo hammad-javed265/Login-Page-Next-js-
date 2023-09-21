@@ -125,8 +125,8 @@ const Pie = () => {
 
   return (
     <div className="w-full h-full">
-      <div className=" absolute top-2 xl:right-14 max-sm:right-7 mt-[6px] xl:mr-44 max-sm:mr-40 lg:right-4 lg:mr-8 md:right-4 md:mr-8">
-        <label className="bg-black pb-[0.7px]">Start Date: </label>
+      <div className=" absolute top-2 xl:right-14 max-sm:right-1 mt-[6px] xl:mr-36 max-sm:mr-40 lg:right-4 lg:mr-8 md:right-4 md:mr-8">
+        <label className="bg-black pb-[0.7px]">Start: </label>
         <input
           type="date"
           className="text-black w-[108px] max-sm:w-[65px]"
@@ -135,7 +135,7 @@ const Pie = () => {
         />
       </div>
       <div className=" absolute top-2 right-4 xl:mt-[6px] max-sm:mt-[6px] mr-8 lg:mt-[30px] md:mt-[30px]">
-        <label className="bg-black pb-[0.7px]">End Date: </label>
+        <label className="bg-black pb-[0.7px]">End: </label>
         <input
           type="date"
           className="text-black w-[108px] max-sm:w-[65px]"
