@@ -82,7 +82,7 @@ const GaugeChart = () => {
     return (
         <div className='w-full h-full pt-5'>
             <div id="GaugeChart" className='w-full h-full' />
-            <div className='text-center text-xl mt-[-20px]'>{parseFloat(value.toFixed(0))} <small> kWh</small></div>
+            <div className='text-center text-xl mt-[-20px]'><span className='bg-black pb-[4px] rounded-2xl'>&#160;&#160;Today : {parseFloat(value.toFixed(0))} <small> kWh</small>&#160;&#160;</span></div>
         </div>
     );
 };

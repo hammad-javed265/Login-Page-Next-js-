@@ -90,12 +90,12 @@ const extractHour = (timestamp) => {
             labels: Array.from({ length: 24 }, (_, i) => `${i}:00`),
             datasets: [
               {
-                label: `${startDate} KWh`,
+                label: `${startDate} kWh`,
                 data: hourlyConsumption1,
                 backgroundColor: "blue",
               },
               {
-                label: `${endDate} KWh`,
+                label: `${endDate} kWh`,
                 data: hourlyConsumption2,
                 backgroundColor: "red",
               },
