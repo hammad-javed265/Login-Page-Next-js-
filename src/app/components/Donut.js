@@ -21,7 +21,7 @@ const Donut = () => {
       try {
         if (selectedDate) {
           const response = await axios.get(
-            `https://energy-monitering.vercel.app/api/meters/getdata?date=${selectedDate}`
+            `https://energy-monitering.vercel.app/api/meters/zephyr_new?date=${selectedDate}`
           );
           setApiData(response.data);
         }
@@ -66,7 +66,7 @@ const Donut = () => {
 
       categories.forEach((category) => {
         const categoryData = apiData
-          .filter((item) => item.Time.startsWith(selectedDate))
+          .filter((item) => item.timestamp.startsWith(selectedDate))
           .map((item) => item[category]);
         const firstValue = categoryData[0] || 0;
         const lastValue = categoryData[categoryData.length - 1] || 0;

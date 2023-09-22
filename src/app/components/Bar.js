@@ -38,18 +38,18 @@ const extractHour = (timestamp) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://energy-monitering.vercel.app/api/meters/getdata`
+          `https://energy-monitering.vercel.app/api/meters/zephyr_new`
         );
         const data = response.data;
 
         // Filter data for the selected start date
         const startDateData = data.filter(
-          (item) => extractDate(item.Time) === startDate
+          (item) => extractDate(item.timestamp) === startDate
         );
 
         // Filter data for the selected end date
         const endDateData = data.filter(
-          (item) => extractDate(item.Time) === endDate
+          (item) => extractDate(item.timestamp) === endDate
         );
 
         if (startDateData.length > 0 && endDateData.length > 0) {
@@ -62,7 +62,7 @@ const extractHour = (timestamp) => {
               console.log(item);
               const nextData = startDateData[index + 1];
 
-              const currentHour = extractHour((currentData).Time);
+              const currentHour = extractHour((currentData).timestamp);
               const consumption =
                 nextData.U_1_ActiveEnergy_KWH - currentData.U_1_ActiveEnergy_KWH;
 
@@ -78,7 +78,7 @@ const extractHour = (timestamp) => {
               const currentData = item;
               const nextData = endDateData[index + 1];
 
-              const currentHour = extractHour(currentData.Time);
+              const currentHour = extractHour(currentData.timestamp);
               const consumption =
                 nextData.U_1_ActiveEnergy_KWH - currentData.U_1_ActiveEnergy_KWH;
 

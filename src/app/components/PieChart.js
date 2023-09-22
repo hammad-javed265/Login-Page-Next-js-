@@ -22,7 +22,7 @@ const Pie = () => {
       try {
         if (selectedStartDate && selectedEndDate) {
           const response = await axios.get(
-            `https://energy-monitering.vercel.app/api/meters/getdata?start=${selectedStartDate}&end=${selectedEndDate}`
+            `https://energy-monitering.vercel.app/api/meters/zephyr_new?start=${selectedStartDate}&end=${selectedEndDate}`
           );
           setApiData(response.data);
         }
@@ -68,7 +68,7 @@ const Pie = () => {
       categories.forEach((category) => {
         const categoryData = apiData
           .filter((item) => {
-            const itemDate = new Date(item.Time);
+            const itemDate = new Date(item.timestamp);
             return (
               itemDate >= new Date(selectedStartDate) &&
               itemDate <= new Date(`${selectedEndDate}T23:59:59.999`)
