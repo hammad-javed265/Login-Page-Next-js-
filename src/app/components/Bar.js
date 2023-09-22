@@ -59,7 +59,6 @@ const extractHour = (timestamp) => {
           startDateData.forEach((item, index) => {
             if (index < startDateData.length - 1) {
               const currentData = item;
-              console.log(item);
               const nextData = startDateData[index + 1];
 
               const currentHour = extractHour((currentData).timestamp);
