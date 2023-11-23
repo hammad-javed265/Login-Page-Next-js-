@@ -69,8 +69,8 @@ const Login = () => {
             <h2 className='text-white text-center text-2xl font-bold'>Sign in</h2>
             <div className='mt-5 space-y-4'>
               
-             <SimpleField placeholder={"Enter Name"} type="email" value={user.email} onChange={(e) => setUser({...user, email: e.target.value})}/>
-             <SimpleField placeholder={"Enter Password"} type="password" value={user.password} onChange={(e) => setUser({...user, password:e.target.value})} />
+             <SimpleField placeholder={"Enter Name"} class="text-black" type="email" value={user.email} onChange={(e) => setUser({...user, email: e.target.value})}/>
+             <SimpleField placeholder={"Enter Password"} class="text-black" type="password" value={user.password} onChange={(e) => setUser({...user, password:e.target.value})} />
   
              <button 
                 className='bg-red-700 w-full py-2 font-bold text-white'
