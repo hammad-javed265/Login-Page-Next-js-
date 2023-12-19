@@ -23,7 +23,7 @@ class Div extends React.Component {
     return (
       <div
         id={id}
-        className={`bg-[#0A2357] text-white p-4  w-full sm:w-full md:w-[46%] ml-6 mt-6 relative ${expanded ? 'expanded' : '', expanded ? 'h-[87%]' : `h-[${heig}]`} opacity-80 ${length} ${heig}`}
+        className={`bg-[#0A2357] text-white p-4 w-full sm:w-full md:w-[46%]  max-sm:ml-0 ml-6 mt-6 relative ${expanded ? 'expanded' : '', expanded ? 'h-[87%]' : `h-[${heig}]`} opacity-80 ${length} ${heig}`}
         style={{
           width: expanded ? '97%' : '',
           position: expanded ? 'fixed' : '',
