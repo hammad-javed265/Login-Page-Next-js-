@@ -18,7 +18,7 @@ function page() {
       {/* navbar ends */}
       <div className="flex flex-wrap space-x-6 space-y-6 h-[95vh]">
         <div className="flex flex-wrap flex-col w-full h-full">
-          <Div id={"div1"} title={"Live Energy Consumption"} length={"lg:w-[26%] xl:w-[26%] mr-6"} heig = "h-[380px]"><GaugeChart></GaugeChart></Div>
+          <Div id={"div1"} title={"Live Energy Consumption"} length={"lg:w-[26%] xl:w-[26%] mr-6"} heig = "sm:h-[350px] md:h-[350px] lg:h-[380px] xl:h-[380px]"><GaugeChart></GaugeChart></Div>
           <Div id={"div7"} title={"Radius Pie Chart"} length={"lg:w-[26%] xl:w-[26%] mr-6"} heig = "h-[380px]"><Radiuspie></Radiuspie></Div>
  
           <div className="flex flex-wrap w-full xl:h-[120px] sm:h-[120px] md:h-[200px] lg:h-[200px] sm:w-full md:w-[44%] lg:w-[44%] xl:w-[44%] mt-6">
