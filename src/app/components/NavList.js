@@ -19,7 +19,7 @@ function NavList() {
     setUser(res.data.user);
   }
   return (
-    <nav className="bg-[#166079] flex rounded-2xl ">
+    <nav className="bg-[#0A2357] flex rounded-2xl " style={{boxShadow:'inset 0 0 20px 10px rgb(1, 88, 189)'}}>
       <div className='w-[97%]'>
         <ul className="flex sm:space-x-[3%] md:space-x-[5%] p-4 max-sm:text-[10px]">
           <li className={`${pathname == "/" || pathname == "/comparision" ? "bg-[#E2E8F0] text-[#000000] rounded" : "text-[#E2E8F0]"}`}>

@@ -62,7 +62,7 @@ const Realtime = () => {
                     const value = (dataFromAPI.U_1_ActivePower_Total_kW);
                     const roundedValue = parseFloat(value.toFixed(2)); // Round to 2 decimal places
                     data.push({ time: time, value: roundedValue });
-if (prevValue !== null) {
+                    if (prevValue !== null) {
                         if (value > prevValue) {
                             series.stroke = am4core.color('#00ff00'); // Set trend line color to green for uptrend
                         } else if (value < prevValue) {
