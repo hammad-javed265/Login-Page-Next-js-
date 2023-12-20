@@ -27,8 +27,8 @@ function page() {
             <Consump id={"month"} title={"Monthly"} xltop={"xl:mt-0 ml-3 max-md:ml-0 lg:ml-0"}>6288 kWh</Consump>
             <Consump id={"year"} title={"YTD"} xltop={"xl:mt-0 ml-3 max-md:ml-0"}>35137 kwh</Consump>
           </div>
-          <Div id={"div4"} title={"Period Over Period Chart"} length={"w-full sm:w-full md:w-[44%] lg:w-[44%] xl:w-[44%] ml-[0px]"} heig = "h-[307px]"><VulnChart></VulnChart></Div>
-          <Div id={"div2"} title={"Live Power Factor"} length={"w-full sm:w-full md:w-[44%] lg:w-[44%] xl:w-[44%] ml-[0px]"} heig = "h-[307px]"><Realtime></Realtime></Div>
+          <Div id={"div4"} title={"Period Over Period Chart"} length={"w-full sm:w-full md:w-[44%] lg:w-[44%] xl:w-[44%] ml-[0px]"} heig = "h-[330px]"><VulnChart></VulnChart></Div>
+          <Div id={"div2"} title={"Live Power Factor"} length={"w-full sm:w-full md:w-[44%] lg:w-[44%] xl:w-[44%] ml-[0px]"} heig = "h-[284px]"><Realtime></Realtime></Div>
      
           <Div id={"div5"} title={"Pie Chart"} length={"lg:w-[26%] xl:w-[26%]  mt-6"} heig = "h-[380px] max-xl:h-[404px]"><PieChart></PieChart></Div>
           <Div id={"div6"} title={"Donut Chart"} length={"lg:w-[26%] xl:w-[26%] "} heig = "h-[380px] max-xl:h-[404px]"><Donut></Donut></Div>

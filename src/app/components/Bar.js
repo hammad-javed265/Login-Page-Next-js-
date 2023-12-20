@@ -91,7 +91,7 @@ const extractHour = (timestamp) => {
               {
                 label: `${startDate} kWh`,
                 data: hourlyConsumption1,
-                backgroundColor: "blue",
+                backgroundColor: "#56BAE4",
               },
               {
                 label: `${endDate} kWh`,
