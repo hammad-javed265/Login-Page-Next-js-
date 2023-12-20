@@ -31,7 +31,49 @@ function Page() {
   return (
     <div className='p-2'>
       <NavList />
-      <div className='bg-[#1E6A8E] text-white p-4 w-[96%] h-[780px] m-8 relative opacity-90 overflow-auto'>
+      <div className='bg-[#0A2357] text-white p-4 w-[96%] h-[780px] m-8 relative opacity-90 overflow-auto' style={{ boxShadow: 'inset 0 0 20px 10px rgb(1, 88, 189)' }}>
+        <>
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '35px',
+              height: '20px',
+              boxShadow: 'inset 5px 5px 4px -1px #02F1F5'
+            }}
+          ></div>
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              width: '35px',
+              height: '20px',
+              boxShadow: 'inset -5px 5px 4px -1px #02F1F5'
+            }}
+          ></div>
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              width: '35px',
+              height: '20px',
+              boxShadow: 'inset 5px -5px 4px -1px #02F1F5'
+            }}
+          ></div>
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              right: 0,
+              width: '35px',
+              height: '20px',
+              boxShadow: 'inset -5px -5px 4px -1px #02F1F5'
+            }}
+          ></div>
+        </>
         <div className='flex flex-col items-center justify-center'>
           <h2 className='text-4xl font-semibold mb-14 mt-4'>Generate Report</h2>
           <form className='space-y-8 w-[50%]' onSubmit={handleSubmit}>
@@ -72,7 +114,7 @@ function Page() {
               <div className='w-2/3'>
                 <div className='flex flex-wrap'>
                   {selectedSources.map((source, index) => (
-                    <div key={index} className=' p-2 m-1 rounded'>
+                    <div key={index} className='p-2 m-1 rounded'>
                       &#10687; {source}
                     </div>
                   ))}

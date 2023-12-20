@@ -134,7 +134,7 @@ const extractHour = (timestamp) => {
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
         />
-      </div>
+      </div><br></br>
 
       {error && <p>{error}</p>}
       {chartData && (
